@@ -63,13 +63,11 @@ void resetGame() {
     }
 
     if (displayedWord == selectedWord) {
-      // Navigate to Win Screen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => ResultScreen(result: Result.Win, onPlayAgain: resetGame)),
       );
     } else if (chancesRemaining <= 0) {
-      // Navigate to Lose Screen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => ResultScreen(result: Result.Lose, onPlayAgain: resetGame)),
