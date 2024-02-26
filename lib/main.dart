@@ -63,13 +63,11 @@ void resetGame() {
     }
 
     if (displayedWord == selectedWord) {
-      // Navigate to Win Screen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => ResultScreen(result: Result.Win, onPlayAgain: resetGame)),
       );
     } else if (chancesRemaining <= 0) {
-      // Navigate to Lose Screen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => ResultScreen(result: Result.Lose, onPlayAgain: resetGame)),
@@ -107,7 +105,7 @@ void resetGame() {
           ),
           Expanded(
             child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 6),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 10),
               itemCount: 26,
               itemBuilder: (context, index) {
                 final letter = String.fromCharCode('A'.codeUnitAt(0) + index);
@@ -118,7 +116,7 @@ void resetGame() {
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       color: Colors.blue,
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(0),
                     ),
                     child: Center(
                       child: Text(
